@@ -14,6 +14,12 @@ use Illuminate\Support\Facades\DB;
 |
 */
 
+Route::get('/', function ($id) {
+    return view('welcome');
+});
+
+Route::get('/acercadenosotros', 'AcercadenosotrosController');
+
 
 Route::get('articulos/', function () {
     $data = DB::select('select * from articulos');
