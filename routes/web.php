@@ -144,3 +144,7 @@ Route::get('profile/{id}', function($id){
     return "Este es el perfirl del usuario con el id nro: ". $id;
 })->where('id', '[0-9]+');
 */
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

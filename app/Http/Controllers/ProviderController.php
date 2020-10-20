@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateProviderRequest;
 use App\Provider;
 use Illuminate\Http\Request;
+
+use function PHPSTORM_META\type;
 
 class ProviderController extends Controller
 {
@@ -36,6 +39,14 @@ class ProviderController extends Controller
      */
     public function store(Request $request)
     {
+        /*$this->validate($request, [
+            'nombre'=>'required|size:60',
+            'apellido_paterno'=>'required|max:40',
+            'apellido_materno'=>'required|max:40',
+            'email'=>'required|max:60',
+            'telefono'=>'required|max:10',
+            'descripcion'=>'required|max:500'
+        ]);
         $nuevoProveedor=new Provider();
         $nuevoProveedor->nombre=$request->nombre;
         $nuevoProveedor->apellido_paterno=$request->apellido_paterno;
@@ -44,6 +55,15 @@ class ProviderController extends Controller
         $nuevoProveedor->email=$request->email;
         $nuevoProveedor->descripcion=$request->descripcion;
         $res = $nuevoProveedor->save();
+        return redirect('/provider');*/
+        $provider=new Provider($request->all());   
+        if ($request->hasFile('image')){
+            $file           = $request->file("image");
+            $nombrearchivo  = $file->getClientOriginalName();
+            $file->move(public_path("image"),$nombrearchivo);
+            $provider->image      = $nombrearchivo;
+        }
+        $provider->save();
         return redirect('/provider');
     }
 
@@ -78,7 +98,7 @@ class ProviderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateProviderRequest $request, $id)
     {
         $proveedor=Provider::find($id);
         $proveedor->update($request->all());

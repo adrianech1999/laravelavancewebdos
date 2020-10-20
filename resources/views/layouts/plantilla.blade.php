@@ -18,19 +18,29 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="collapsibleNavId">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link text-white font-weight-bold" href="/acercadenosotros">Acerca de nosotros</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white font-weight-bold" href="/productos">Productos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white font-weight-bold" href="/sucursales">Sucursales</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white font-weight-bold" href="/contacto">Contacto</a>
-                    </li>
+                <ul class="navbar-nav mt-2 mt-lg-0 d-flex justify-content-between w-100">
+                    <div class="d-flex flex-row justify-content-around">
+                        <li class="nav-item">
+                            <a class="nav-link text-white font-weight-bold" href="/acercadenosotros">Acerca de nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white font-weight-bold" href="/productos">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white font-weight-bold" href="/sucursales">Sucursales</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white font-weight-bold" href="/contacto">Contacto</a>
+                        </li>
+                    </div>
+                    <div class="d-flex flex-row justify-content-around">
+                        <li class="nav-item">
+                        <a class="nav-link text-white font-weight-bold" href="{{route('login')}}">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white font-weight-bold" href="{{route('register')}}">Registrar</a>
+                        </li>
+                    </div>
                 </ul>
             </div>
         </nav>
